@@ -1,5 +1,244 @@
 <?php
 
+namespace Eccube\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Page
+ *
+ * @ORM\Table(name="dtb_page")
+ * @ORM\Entity(repositoryClass="Eccube\Repository\PageRepository")
+ */
+class Page
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="page_name", type="string", length=255, nullable=false)
+     */
+    private $page_name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=false)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="file_name", type="string", length=255, nullable=false)
+     */
+    private $file_name;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="edit_type", type="smallint", nullable=false)
+     */
+    private $edit_type;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="author", type="string", length=255, nullable=true)
+     */
+    private $author;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="keyword", type="text", nullable=true)
+     */
+    private $keyword;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="create_date", type="datetime", nullable=false)
+     */
+    private $create_date;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="update_date", type="datetime", nullable=false)
+     */
+    private $update_date;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="meta_robots", type="string", length=255, nullable=true)
+     */
+    private $meta_robots;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="meta_tags", type="text", nullable=true)
+     */
+    private $meta_tags;
+
+    // Getters and setters
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getPageName(): ?string
+    {
+        return $this->page_name;
+    }
+
+    public function setPageName(string $page_name): self
+    {
+        $this->page_name = $page_name;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getFileName(): ?string
+    {
+        return $this->file_name;
+    }
+
+    public function setFileName(string $file_name): self
+    {
+        $this->file_name = $file_name;
+
+        return $this;
+    }
+
+    public function getEditType(): ?int
+    {
+        return $this->edit_type;
+    }
+
+    public function setEditType(int $edit_type): self
+    {
+        $this->edit_type = $edit_type;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?string $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getKeyword(): ?string
+    {
+        return $this->keyword;
+    }
+
+    public function setKeyword(?string $keyword): self
+    {
+        $this->keyword = $keyword;
+
+        return $this;
+    }
+
+    public function getCreateDate(): ?\DateTime
+    {
+        return $this->create_date;
+    }
+
+    public function setCreateDate(\DateTime $create_date): self
+    {
+        $this->create_date = $create_date;
+
+        return $this;
+    }
+
+    public function getUpdateDate(): ?\DateTime
+    {
+        return $this->update_date;
+    }
+
+    public function setUpdateDate(\DateTime $update_date): self
+    {
+        $this->update_date = $update_date;
+
+        return $this;
+    }
+
+    public function getMetaRobots(): ?string
+    {
+        return $this->meta_robots;
+    }
+
+    public function setMetaRobots(?string $meta_robots): self
+    {
+        $this->meta_robots = $meta_robots;
+
+        return $this;
+    }
+
+    public function getMetaTags(): ?string
+    {
+        return $this->meta_tags;
+    }
+
+    public function setMetaTags(?string $meta_tags): self
+    {
+        $this->meta_tags = $meta_tags;
+
+        return $this;
+    }
+}
+<?php
+
 /*
  * This file is part of EC-CUBE
  *
@@ -423,7 +662,7 @@ if (!class_exists('\Eccube\Entity\Page')) {
         }
 
         /**
-         * Set meta_tags
+* Set meta_tags
          *
          * @param string $metaTags
          *
