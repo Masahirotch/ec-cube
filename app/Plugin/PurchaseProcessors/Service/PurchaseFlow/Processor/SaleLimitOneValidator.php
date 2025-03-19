@@ -69,3 +69,4 @@ class SaleLimitOneValidator extends ItemValidator
         $item->setQuantity(1);
     }
 }
+
